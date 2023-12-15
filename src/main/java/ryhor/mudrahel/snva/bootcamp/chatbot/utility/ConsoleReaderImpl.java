@@ -29,4 +29,18 @@ public class ConsoleReaderImpl implements ConsoleReader {
     public String readString() {
         return scanner.next();
     }
+
+    @Override
+    public String readLine() {
+        String line="";
+        while(line.isEmpty()){
+            line = scanner.nextLine();
+        }
+        return line;
+    }
+
+    @Override
+    public void close(){
+        scanner.close();
+    }
 }
