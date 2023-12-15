@@ -1,6 +1,7 @@
 package ryhor.mudrahel.snva.bootcamp.chatbot.entity;
 
 import ryhor.mudrahel.snva.bootcamp.chatbot.entity.cars.Car;
+import ryhor.mudrahel.snva.bootcamp.chatbot.entity.payments.Payment;
 
 public class Order {
 
@@ -9,7 +10,7 @@ public class Order {
     private Car car;
     private double total;
     private double taxes;
-    private String paymentType;
+    private Payment paymentType;
 
     public Order() {
     }
@@ -54,11 +55,11 @@ public class Order {
         this.taxes = taxes;
     }
 
-    public String getPaymentType() {
+    public Payment getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(String paymentType) {
+    public void setPaymentType(Payment paymentType) {
         this.paymentType = paymentType;
     }
 

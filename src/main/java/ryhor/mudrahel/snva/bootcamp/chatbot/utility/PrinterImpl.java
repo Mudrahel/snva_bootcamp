@@ -2,6 +2,8 @@ package ryhor.mudrahel.snva.bootcamp.chatbot.utility;
 
 import ryhor.mudrahel.snva.bootcamp.chatbot.entity.Customer;
 import ryhor.mudrahel.snva.bootcamp.chatbot.entity.Order;
+import ryhor.mudrahel.snva.bootcamp.chatbot.entity.payments.Cash;
+import ryhor.mudrahel.snva.bootcamp.chatbot.entity.payments.Payment;
 
 public class PrinterImpl implements Printer{
     private String delimeter="==================================================";
@@ -27,8 +29,14 @@ public class PrinterImpl implements Printer{
         System.out.format(line,"price",order.getCar().getPrice());
         System.out.format(line,"taxes",order.getTaxes());
         System.out.format(line,"total",order.getTotal());
-        System.out.format(line,"selected payment",order.getPaymentType());
         System.out.println(delimeter);
 
+    }
+
+    @Override
+    public void printPaymentPlan(Payment payment) {
+        System.out.format(header,"Payment data");
+        System.out.format(line,"Payment plan",payment.getPaymentData());
+        System.out.println(delimeter);
     }
 }
