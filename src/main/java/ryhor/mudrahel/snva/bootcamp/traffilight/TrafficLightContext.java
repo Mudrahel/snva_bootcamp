@@ -2,19 +2,21 @@ package ryhor.mudrahel.snva.bootcamp.traffilight;
 
 // Context class representing the traffic light
 public class TrafficLightContext {
-    private TrafficLightState currentState;
+    private TrafficLight trafficLight;
 
     public TrafficLightContext() {
-        // Initial state is Red
-        this.currentState = new RedLightState();
     }
 
-    public void setState(TrafficLightState state) {
-        this.currentState = state;
+    public TrafficLightContext(TrafficLight light) {
+        this.trafficLight = light;
+    }
+
+    public void setState(TrafficLight light) {
+        this.trafficLight = light;
     }
 
     public void requestStateChange() {
-        currentState.printState(); // Print the current state after the transition
-        currentState.handleRequest();
+        trafficLight.printState(); // Print the current state after the transition
+        trafficLight.handleRequest();
     }
 }

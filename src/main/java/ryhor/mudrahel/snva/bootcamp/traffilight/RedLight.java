@@ -1,7 +1,7 @@
 package ryhor.mudrahel.snva.bootcamp.traffilight;
 
 // Concrete class representing the "Red" state
-public class RedLightState implements TrafficLightState {
+public class RedLight implements TrafficLight {
     @Override
     public void handleRequest() {
         System.out.println("Switching to Green");
