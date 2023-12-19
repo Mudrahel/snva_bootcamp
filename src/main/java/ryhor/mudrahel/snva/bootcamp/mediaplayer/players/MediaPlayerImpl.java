@@ -14,6 +14,11 @@ public class MediaPlayerImpl implements MediaPlayer {
         this.videoPlayer = new VideoPlayer();
     }
 
+    public MediaPlayerImpl(MediaPlayer audioPlayer, MediaPlayer videoPlayer) {
+        this.audioPlayer = audioPlayer;
+        this.videoPlayer = videoPlayer;
+    }
+
     @Override
     public void play() {
         activePlayer.play();
