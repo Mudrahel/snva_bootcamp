@@ -11,8 +11,5 @@ public class ShowImpl implements Show{
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
 

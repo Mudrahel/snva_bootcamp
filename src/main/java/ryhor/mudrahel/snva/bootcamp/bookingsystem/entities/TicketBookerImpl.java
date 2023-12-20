@@ -11,18 +11,18 @@ public class TicketBookerImpl implements TicketBooker {
     }
 
     @Override
-    public void book(Seating seating, int book) {
+    public void book(Seating seating, int seats) {
         if (!reservation.containsKey(seating)) {
             reservation.put(seating, seating.getSeats());
         }
 
         int remaining = reservation.get(seating);
-        if (remaining > 0 && remaining >= book) {
-            remaining -= book;
+        if (remaining > 0 && remaining >= seats) {
+            remaining -= seats;
             reservation.put(seating, remaining);
-            System.out.println("Booked " + book + " seats. remaining: " + remaining);
+            System.out.println("Booked " + seats + " seats. remaining: " + remaining);
         } else {
-            System.out.println("Failed to book " + book + " seats. Not enough available seat. Only " + remaining + " left");
+            System.out.println("Failed to book " + seats + " seats. Not enough available seat. Only " + remaining + " left");
         }
     }
 }
