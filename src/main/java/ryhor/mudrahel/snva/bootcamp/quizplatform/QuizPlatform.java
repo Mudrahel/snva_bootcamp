@@ -4,7 +4,6 @@ import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.ConsoleReader;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.ConsoleReaderImpl;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class QuizPlatform {
