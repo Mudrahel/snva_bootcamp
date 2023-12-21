@@ -10,6 +10,15 @@ package ryhor.mudrahel.snva.bootcamp.quizplatform;
  * 3.	Exception Handling
  * 4.	User Input Validations
  * Note: Your code should not break at any point of time, no matter what the input is. It should generate user friendly messages as and when necessary
+ *
+ * Extend the code on the following lines:
+ * 1.	Add a Database table to add new users (userid, username, password, email, address, mobile no, technologies interested:
+ * Java Full Stack, Python full stack, DotNet, MEAN stack, MERN Stack, DevOps, Cloud)
+ * 2.	Add a database table with questions and answers
+ * 3.	Your application should validate users based on the details in the database (Username + password)
+ * 4.	Depending on the user’s choice of tests (E.g. Java full stack), the test should be displayed.
+ *
+ * Three quiz, Java, Python, DevOps
  */
 public class Main {
 
