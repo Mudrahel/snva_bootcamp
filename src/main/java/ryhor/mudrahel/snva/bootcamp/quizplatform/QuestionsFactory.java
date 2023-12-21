@@ -4,48 +4,63 @@ import java.util.*;
 
 public class QuestionsFactory {
 
-    public static Map<String, List<String>> produce(){
-        Map<String, List<String>> questions = new LinkedHashMap<String,List<String>>();
+    public static List<Question> produceQuestions() {
+        List<Question> questions = new ArrayList<>();
 
         // Question 1
-        questions.put("What is the interface for a resizable array in Java?",
+        Question question = new QuestionImpl("Which of the following are part of the Java Collection Framework?",
                 Arrays.asList(
-                        "A) ArrayList", // Correct Answer
-                        "B) LinkedList",
-                        "C) Vector", // Correct Answer
-                        "D) HashSet"));
+                        "A) Arrays",
+                        "B) ArrayList", // Correct Answer
+                        "C) HashMap", // Correct Answer
+                        "D) String"),
+                "bc",
+                2);
+        questions.add(question);
 
         // Question 2
-        questions.put("Which of the following collections guarantees the order of elements?",
+        question = new QuestionImpl("Which of the following collections guarantees the order of elements?",
                 Arrays.asList(
-                        "A) HashSet",
+                        "A) LinkedList",// Correct Answer
                         "B) HashMap",
                         "C) LinkedHashSet", // Correct Answer
-                        "D) TreeMap"));
+                        "D) ArrayList"), // Correct Answer
+                "acd",
+                3);
+        questions.add(question);
 
         // Question 3
-        questions.put("What is the purpose of the java.util.Collections class?",
+        question = new QuestionImpl("Which of the following are concurrent collections in Java?",
                 Arrays.asList(
-                        "A) To provide synchronized collection classes", // Correct Answer
-                        "B) To provide utility methods for collections",
-                        "C) To provide methods for sorting and searching",
-                        "D) To provide immutable collection classes"));
+                        "A) ArrayList",
+                        "B) CopyOnWriteArrayList", // Correct Answer
+                        "C) HashSet",
+                        "D) ConcurrentHashMap"), // Correct Answer
+                "bd",
+                2);
+        questions.add(question);
 
         // Question 4
-        questions.put("Which collection class allows duplicate elements?",
+        question = new QuestionImpl("Which collection class allows duplicate elements?",
                 Arrays.asList(
                         "A) HashSet",
                         "B) TreeSet",
                         "C) ArrayList", // Correct Answer
-                        "D) LinkedHashSet"));
+                        "D) LinkedHashSet"),
+                "c",
+                1);
+        questions.add(question);
 
         // Question 5
-        questions.put("What is the difference between HashSet and TreeSet?",
+        question = new QuestionImpl("What is the difference between HashMap and HashSet?",
                 Arrays.asList(
-                        "A) HashSet allows duplicate elements", // Correct Answer
-                        "B) TreeSet is sorted", // Correct Answer
-                        "C) HashSet is synchronized",
-                        "D) TreeSet allows null elements"));
+                        "A) HashMap allows null elements", // Correct Answer
+                        "B) HashSet is sorted",
+                        "C) HashSet allows duplicates",
+                        "D) HashSet doesn't allow duplicates"),// Correct Answer
+                "ad",
+                2);
+        questions.add(question);
 
         return questions;
     }

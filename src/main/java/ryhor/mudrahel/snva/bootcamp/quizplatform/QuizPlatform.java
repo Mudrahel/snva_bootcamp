@@ -49,13 +49,14 @@ public class QuizPlatform {
             }
         }
 
-        Map<String, List<String>> questions = QuestionsFactory.produce();
-
+        List<Question> questions = QuestionsFactory.produceQuestions();
+        int userScore = 0;
+        int totalScore = 0;
         System.out.println("Quiz has began.");
-        for (Map.Entry<String, List<String>> entry : questions.entrySet()) {
+        for (Question question : questions) {
             String answer = "";
             while (true) {
-                printQuestion(entry.getKey(), entry.getValue());
+                printQuestion(question.getTheQuestion(), question.getOptions());
                 System.out.print("Your answer:");
                 answer = console.readString();
                 if (AnswerValidator.isValid(answer)) {
@@ -64,9 +65,12 @@ public class QuizPlatform {
                     System.out.println("Incorrect answer. Please enter only available options, like 'ab' or 'bc'");
                 }
             }
+            if (AnswerVerifier.isCorrect(answer, question.getCorrectAnswer())) {
+                userScore += question.getScore();
+            }
+            totalScore += question.getScore();
         }
-
-//        printQuestions(questions);
+        System.out.println("Your score is " + userScore + " out of " + totalScore);
 
     }
 
@@ -76,17 +80,6 @@ public class QuizPlatform {
             System.out.println("  " + option);
         }
         System.out.println();
-    }
-
-    private static void printQuestions(Map<String, List<String>> questions) {
-        // Print the questions and answers
-        for (Map.Entry<String, List<String>> entry : questions.entrySet()) {
-            System.out.println(entry.getKey());
-            for (String option : entry.getValue()) {
-                System.out.println("  " + option);
-            }
-            System.out.println();
-        }
     }
 
     private static void printUsers(Set<User> users) {
