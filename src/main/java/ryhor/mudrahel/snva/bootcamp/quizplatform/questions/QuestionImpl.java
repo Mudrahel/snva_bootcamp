@@ -16,6 +16,18 @@ public class QuestionImpl implements Question {
         this.score = score;
     }
 
+    public QuestionImpl(String question, List<String> options, List<String> correctAnswer, int score) {
+        this.question = question;
+        this.options = options;
+        this.correctAnswer = correctAnswer;
+        this.score = score;
+    }
+
+    @Override
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
+
     public int getQuestionId() {
         return questionId;
     }

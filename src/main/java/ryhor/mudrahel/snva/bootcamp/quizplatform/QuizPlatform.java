@@ -89,7 +89,7 @@ public class QuizPlatform {
 
     private void displayOptions(List<String> options) {
         for (int i = 0; i < options.size(); i++) {
-            System.out.println("Option " + (i + 1) + " " + options.get(i));
+            System.out.println("Option " + (i + 1) + ") " + options.get(i));
         }
     }
 
