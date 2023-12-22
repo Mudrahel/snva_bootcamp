@@ -3,10 +3,18 @@ package ryhor.mudrahel.snva.bootcamp.quizplatform;
 import java.util.List;
 
 public class QuestionImpl implements Question {
+    private int questionId;
     private String question;
     private List<String> options;
     private String correctAnswer;
     private int score;
+
+
+    public QuestionImpl(int id, String question, int score) {
+        this.questionId = id;
+        this.question = question;
+        this.score = score;
+    }
 
     public QuestionImpl(String question, List<String> options, String correctAnswer, int score) {
         this.question = question;
@@ -15,13 +23,12 @@ public class QuestionImpl implements Question {
         this.score = score;
     }
 
-    @Override
-    public Question getQuestion() {
-        return this;
+    public int getQuestionId() {
+        return questionId;
     }
 
     @Override
-    public String getTheQuestion() {
+    public String getQuestionStr() {
         return question;
     }
 

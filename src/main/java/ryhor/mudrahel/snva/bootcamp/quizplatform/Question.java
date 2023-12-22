@@ -3,11 +3,11 @@ package ryhor.mudrahel.snva.bootcamp.quizplatform;
 import java.util.List;
 
 public interface Question {
-    Question getQuestion();
+    int getQuestionId();
 
     List<String> getOptions();
 
-    String getTheQuestion();
+    String getQuestionStr();
     String getCorrectAnswer();
 
     int getScore();

@@ -18,7 +18,6 @@ public class QuizPlatform {
     }
 
     public void run() {
-
         int menuOption;
 
         Connection db = DbConnector.connect();
@@ -44,14 +43,22 @@ public class QuizPlatform {
             login();
         }
 
-        List<Question> questions = QuestionsFactory.produceQuestions();
+        String topic = selectQuiz();
+        System.out.println(topic+" quiz selected. Loading...");
+
+        System.out.println("Quiz has began.");
+        List<Question> questions = QuizLoader.load(topic);
+        for (Question q:questions) {
+            System.out.println(q.getQuestionStr());
+        }
         int userScore = 0;
         int totalScore = 0;
-        System.out.println("Quiz has began.");
-        for (Question question : questions) {
+
+        List<Question> questionss = QuestionsFactory.produceQuestions();
+        for (Question question : questionss) {
             String answer = "";
             while (true) {
-                printQuestion(question.getTheQuestion(), question.getOptions());
+                printQuestion(question.getQuestionStr(), question.getOptions());
                 System.out.print("Your answer:");
                 answer = console.readString();
                 if (AnswerValidator.isValid(answer)) {
@@ -104,6 +111,17 @@ public class QuizPlatform {
                 System.out.println("Incorrect username or password. Try again");
             }
         }
+    }
+
+    private String selectQuiz() {
+        System.out.println("Please select a quiz topic:");
+        List<String> topics = Topic.getAll();
+        for (int i = 0; i < topics.size(); i++) {
+            System.out.println("Option " + (i + 1) + " " + topics.get(i));
+        }
+        int topic = console.readInt();
+        //TODO add input validation
+        return topics.get(topic - 1);
     }
 
     private static void printQuestion(String question, List<String> answers) {
