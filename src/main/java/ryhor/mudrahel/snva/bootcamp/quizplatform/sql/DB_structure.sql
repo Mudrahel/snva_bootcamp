@@ -10,7 +10,7 @@ CREATE TABLE users (
 );
 INSERT INTO users (username, password, email, address, mobile_no, tech_interest)
 VALUES
-    ('example_user', 'secretpassword', 'user@example.com', '123 Main St', '1234567890', 'Programming');
+    ('greg', '1234', 'user@example.com', '123 Main St', '1234567890', 'Programming');
 
 -- keeps quiz topics
 CREATE TABLE topics (
