@@ -1,4 +1,4 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.utility;
 
 import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.DbConnector;
 
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Topic {
+public class TopicsPuller {
 
     public static List<String> getAll(){
         Connection connection = DbConnector.connect();

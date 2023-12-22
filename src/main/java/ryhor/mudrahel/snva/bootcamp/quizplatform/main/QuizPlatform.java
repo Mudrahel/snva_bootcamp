@@ -1,4 +1,4 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.main;
 
 import ryhor.mudrahel.snva.bootcamp.quizplatform.answers.AnswerExtractor;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.answers.AnswerLoader;
@@ -12,8 +12,8 @@ import ryhor.mudrahel.snva.bootcamp.quizplatform.users.UserBank;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.users.UserBankImpl;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.ConsoleReader;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.ConsoleReaderImpl;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.TopicsPuller;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class QuizPlatform {
@@ -86,7 +86,6 @@ public class QuizPlatform {
         totalScore += q.getScore();
     }
 
-
     private void displayOptions(List<String> options) {
         for (int i = 0; i < options.size(); i++) {
             System.out.println("Option " + (i + 1) + ") " + options.get(i));
@@ -132,7 +131,7 @@ public class QuizPlatform {
 
     private String selectQuiz() {
         System.out.println("Please select a quiz topic:");
-        List<String> topics = Topic.getAll();
+        List<String> topics = TopicsPuller.getAll();
         for (int i = 0; i < topics.size(); i++) {
             System.out.println("Option " + (i + 1) + " " + topics.get(i));
         }

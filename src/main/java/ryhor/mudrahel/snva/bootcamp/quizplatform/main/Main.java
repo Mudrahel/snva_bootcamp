@@ -1,8 +1,6 @@
 package ryhor.mudrahel.snva.bootcamp.quizplatform.main;
 
 
-import ryhor.mudrahel.snva.bootcamp.quizplatform.QuizPlatform;
-
 /**
  * Online Quiz Platform:
  * Create an online quiz platform with multiple-choice questions. Allow users to register, take quizzes, and view their scores. Implement a question bank and a scoring system.
