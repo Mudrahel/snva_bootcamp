@@ -1,4 +1,4 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.users;
 
 import java.util.Set;
 

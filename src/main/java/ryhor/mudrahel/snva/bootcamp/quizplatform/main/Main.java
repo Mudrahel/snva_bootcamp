@@ -1,5 +1,7 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.main;
 
+
+import ryhor.mudrahel.snva.bootcamp.quizplatform.QuizPlatform;
 
 /**
  * Online Quiz Platform:

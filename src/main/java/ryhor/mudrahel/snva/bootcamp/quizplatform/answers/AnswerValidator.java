@@ -1,17 +1,15 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.answers;
 
 public class AnswerValidator {
     public static boolean isValid(String answer) {
-        answer = answer.toLowerCase();
-        boolean valid = true;
         if (answer.length() < 1 || answer.length() > 4) {
             return false;
         }
 
-        // Check if each character is a, b, c, or d and occurs only once
+        // Check if each character is 1, 2, 3, or 4 and occurs only once
         for (char c : answer.toCharArray()) {
-            if (c != 'a' && c != 'b' && c != 'c' && c != 'd') {
-                return false; // Character is not a, b, c, or d
+            if (c != '1' && c != '2' && c != '3' && c != '4') {
+                return false;
             }
             // Check for duplicate characters
             if (answer.indexOf(c) != answer.lastIndexOf(c)) {

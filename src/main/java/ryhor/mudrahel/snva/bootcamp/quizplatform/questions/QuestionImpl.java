@@ -1,4 +1,4 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.questions;
 
 import java.util.List;
 
@@ -6,20 +6,13 @@ public class QuestionImpl implements Question {
     private int questionId;
     private String question;
     private List<String> options;
-    private String correctAnswer;
+    private List<String> correctAnswer;
     private int score;
 
 
     public QuestionImpl(int id, String question, int score) {
         this.questionId = id;
         this.question = question;
-        this.score = score;
-    }
-
-    public QuestionImpl(String question, List<String> options, String correctAnswer, int score) {
-        this.question = question;
-        this.options = options;
-        this.correctAnswer = correctAnswer;
         this.score = score;
     }
 
@@ -38,8 +31,18 @@ public class QuestionImpl implements Question {
     }
 
     @Override
-    public String getCorrectAnswer() {
+    public void setOptions(List<String> options) {
+        this.options=options;
+    }
+
+    @Override
+    public List<String> getCorrectAnswer() {
         return correctAnswer;
+    }
+
+    @Override
+    public void setCorrectAnswer(List<String> correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
 
     @Override

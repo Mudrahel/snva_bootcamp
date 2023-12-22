@@ -1,4 +1,6 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.questions;
+
+import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.DbConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizLoader {
+public class QuestionLoader {
 
-    static List<Question> load(String topic) {
+    public static List<Question> load(String topic) {
         Connection connection = DbConnector.connect();
 
         List<Question> questions = new ArrayList<>();

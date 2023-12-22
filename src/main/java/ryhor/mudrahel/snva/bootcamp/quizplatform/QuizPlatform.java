@@ -1,16 +1,28 @@
 package ryhor.mudrahel.snva.bootcamp.quizplatform;
 
+import ryhor.mudrahel.snva.bootcamp.quizplatform.answers.AnswerExtractor;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.answers.AnswerLoader;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.answers.AnswerValidator;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.questions.OptionLoader;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.questions.Question;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.questions.QuestionLoader;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.users.User;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.users.UserAuthenticator;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.users.UserBank;
+import ryhor.mudrahel.snva.bootcamp.quizplatform.users.UserBankImpl;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.ConsoleReader;
 import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.ConsoleReaderImpl;
 
-import java.sql.Connection;
-import java.util.List;
-import java.util.Set;
+import java.sql.SQLOutput;
+import java.util.*;
 
 public class QuizPlatform {
 
     private ConsoleReader console;
     private UserBank userBank;
+
+    private static int userScore = 0;
+    private static int totalScore = 0;
 
     public QuizPlatform() {
         console = new ConsoleReaderImpl();
@@ -19,8 +31,6 @@ public class QuizPlatform {
 
     public void run() {
         int menuOption;
-
-        Connection db = DbConnector.connect();
 
         while (true) {
             System.out.println("Welcome to Quiz Platform. What would you like to do?");
@@ -44,36 +54,43 @@ public class QuizPlatform {
         }
 
         String topic = selectQuiz();
-        System.out.println(topic+" quiz selected. Loading...");
+        System.out.println(topic + " quiz selected. Loading...");
 
         System.out.println("Quiz has began.");
-        List<Question> questions = QuizLoader.load(topic);
-        for (Question q:questions) {
-            System.out.println(q.getQuestionStr());
-        }
-        int userScore = 0;
-        int totalScore = 0;
+        List<Question> questions = QuestionLoader.load(topic);
+        OptionLoader.load(questions);
+        AnswerLoader.load(questions);
 
-        List<Question> questionss = QuestionsFactory.produceQuestions();
-        for (Question question : questionss) {
-            String answer = "";
-            while (true) {
-                printQuestion(question.getQuestionStr(), question.getOptions());
-                System.out.print("Your answer:");
-                answer = console.readString();
-                if (AnswerValidator.isValid(answer)) {
-                    break;
-                } else {
-                    System.out.println("Incorrect answer. Please enter only available options, like 'ab' or 'bc'");
-                }
-            }
-            if (AnswerVerifier.isCorrect(answer, question.getCorrectAnswer())) {
-                userScore += question.getScore();
-            }
-            totalScore += question.getScore();
+        for (Question q : questions) {
+            processQuestion(q);
         }
+
         System.out.println("Your score is " + userScore + " out of " + totalScore);
 
+    }
+
+    private void processQuestion(Question q) {
+        System.out.println(q.getQuestionStr());
+        displayOptions(q.getOptions());
+        String answer = console.readString();
+        if (!AnswerValidator.isValid(answer)) {
+            System.out.println("Incorrect answer. Please enter only available options, like '1' or '23'");
+        }
+        List<String> userAnswers = AnswerExtractor.extract(q.getOptions(), answer);
+        Collections.sort(userAnswers);
+        Collections.sort(q.getCorrectAnswer());
+        if (userAnswers.equals(q.getCorrectAnswer())) {
+            userScore += q.getScore();
+        }
+
+        totalScore += q.getScore();
+    }
+
+
+    private void displayOptions(List<String> options) {
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println("Option " + (i + 1) + " " + options.get(i));
+        }
     }
 
     private void registerUser() {
@@ -119,8 +136,15 @@ public class QuizPlatform {
         for (int i = 0; i < topics.size(); i++) {
             System.out.println("Option " + (i + 1) + " " + topics.get(i));
         }
-        int topic = console.readInt();
-        //TODO add input validation
+        int topic;
+        while (true) {
+            topic = console.readInt();
+            if (topic > 0 && topic <= topics.size()) {
+                break;
+            } else {
+                System.out.println("There is not such option. Please try again");
+            }
+        }
         return topics.get(topic - 1);
     }
 

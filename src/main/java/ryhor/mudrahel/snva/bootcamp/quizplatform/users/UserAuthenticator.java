@@ -1,4 +1,6 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.users;
+
+import ryhor.mudrahel.snva.bootcamp.quizplatform.utility.DbConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

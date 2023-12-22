@@ -1,4 +1,4 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.questions;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package ryhor.mudrahel.snva.bootcamp.quizplatform;
+package ryhor.mudrahel.snva.bootcamp.quizplatform.utility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
