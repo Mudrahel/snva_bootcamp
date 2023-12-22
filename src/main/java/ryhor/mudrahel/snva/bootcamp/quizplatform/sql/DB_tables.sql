@@ -1,4 +1,4 @@
--- keep info about registere users
+-- keep info about register users
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
@@ -8,17 +8,12 @@ CREATE TABLE users (
     mobile_no CHAR(10),
     tech_interest VARCHAR(255)
 );
-INSERT INTO users (username, password, email, address, mobile_no, tech_interest)
-VALUES
-    ('greg', '1234', 'user@example.com', '123 Main St', '1234567890', 'Programming');
 
 -- keeps quiz topics
 CREATE TABLE topics (
     id INT PRIMARY KEY AUTO_INCREMENT,
     topic VARCHAR(255) NOT NULL
 );
-INSERT INTO topics (topic)
-VALUES ('Java'),('Python'),('.Net');
 
 -- question data and topic allegiance
 CREATE TABLE q_data (
