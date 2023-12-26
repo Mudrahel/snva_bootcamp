@@ -10,5 +10,4 @@ public class QuestionBankImpl {
         this.questions = questions;
     }
 
-
 }

@@ -9,6 +9,9 @@ public class QuestionImpl implements Question {
     private List<String> correctAnswer;
     private int score;
 
+    public QuestionImpl(String question) {
+        this.question = question;
+    }
 
     public QuestionImpl(int id, String question, int score) {
         this.questionId = id;

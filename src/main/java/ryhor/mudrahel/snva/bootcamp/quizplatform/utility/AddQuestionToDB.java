@@ -8,9 +8,9 @@ import java.util.*;
 public class AddQuestionToDB {
 
     public static void main(String[] args) {
-//        int topicId = 1;//Java
+        int topicId = 1;//Java
 //        int topicId = 2;//Python
-        int topicId = 3;//.Net
+//        int topicId = 1;//.Net
         int score = 2;
 
         Question question = new QuestionImpl(

@@ -47,8 +47,6 @@ public class QuizPlatform {
             }
         }
 
-        printUsers(userBank.getUsers());
-
         if (menuOption == 2) {
             login();
         }
@@ -155,10 +153,4 @@ public class QuizPlatform {
         System.out.println();
     }
 
-    private static void printUsers(Set<User> users) {
-        System.out.println("Registered users");
-        for (User user : users) {
-            System.out.println("User:" + user.getUsername());
-        }
-    }
 }
