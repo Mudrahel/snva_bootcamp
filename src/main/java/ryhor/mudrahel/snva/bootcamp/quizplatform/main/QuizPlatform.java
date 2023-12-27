@@ -93,9 +93,9 @@ public class QuizPlatform {
     private void registerUser() {
         System.out.println("register scenario");
         System.out.println("Please enter username");
-        String username = console.readString();
+        String username = console.readLine();
         System.out.println("Please enter password");
-        String password = console.readString();
+        String password = console.readLine();
         System.out.println("Please enter email");
         String email = console.readString();
         System.out.println("Please enter address");

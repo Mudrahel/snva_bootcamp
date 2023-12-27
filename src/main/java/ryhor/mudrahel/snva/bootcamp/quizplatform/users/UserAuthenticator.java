@@ -29,8 +29,8 @@ public class UserAuthenticator {
 
         } catch (SQLException e) {
             System.err.println("Failed to validate a user into users: " + e.getMessage());
-            return false;
         }
+        return false;
 
     }
 }

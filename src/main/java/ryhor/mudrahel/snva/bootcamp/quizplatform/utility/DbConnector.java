@@ -9,6 +9,7 @@ public class DbConnector {
 
     public static Connection connect() {
         if (connection == null) {
+            //TODO later move to configuration file
             // JDBC URL, username, and password of MySQL server
             String url = "jdbc:mysql://localhost:3306/quiz_platform";
             String user = "root";
